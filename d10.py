@@ -1,0 +1,16 @@
+import numpy as np
+import pandas as pd
+yes=pd.read_csv('/Users/louis/Desktop/STOCK_DAY_0050_202009.csv')
+no=pd.read_csv('/Users/louis/Desktop/STOCK_DAY_0050_202009.csv')
+print(yes)
+print(no)
+print('------------------------------------------------------')
+#final=pd.merge(yes,no, on='date', how='outer')
+final=pd.concat([yes,no],axis=0, join='inner')
+print(final)
+filter=(final['open']<final['close'])
+print('------------------------------------------------------')
+print('------------------------------------------------------')
+print('------------------------------------------------------')
+print('會賺錢的股票們：')
+print(final[filter])
